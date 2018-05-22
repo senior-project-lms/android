@@ -1,5 +1,9 @@
 package umtkas.com.lms.models;
 
+import com.google.gson.annotations.SerializedName;
+
+import org.jsoup.Jsoup;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,20 +11,17 @@ public class Announcement implements Serializable {
 
     private static final long serialVersionUID = 2893075226293359287L;
 
+    @SerializedName("publicKey")
     private String publicKey;
+    @SerializedName("title")
     private String title;
+    @SerializedName("content")
     private String content;
-    private Date createdAt;
+    @SerializedName("createdAt")
+    private String createdAt;
+    @SerializedName("createdBy")
     private User createdBy;
 
-
-    public Announcement(String publicKey, String title, String content, Date createdAt, User createdBy) {
-        this.publicKey = publicKey;
-        this.title = title;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.createdBy = createdBy;
-    }
 
     public String getPublicKey() {
         return publicKey;
@@ -39,7 +40,7 @@ public class Announcement implements Serializable {
     }
 
     public String getContent() {
-        return content;
+        return Jsoup.parse(content).text();
     }
 
     public void setContent(String content) {
@@ -47,10 +48,12 @@ public class Announcement implements Serializable {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        long time = Long.parseLong(createdAt);
+
+        return new Date(time);
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

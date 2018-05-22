@@ -1,5 +1,10 @@
 package umtkas.com.lms.models;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Resource implements Serializable {
@@ -7,13 +12,19 @@ public class Resource implements Serializable {
 
     private static final long serialVersionUID = 1563747927754467865L;
 
+    @SerializedName("publicKey")
     private String publicKey;
 
+    @SerializedName("url")
     private String url;
 
+    @SerializedName("originalFileName")
     private String originalFileName;
 
+
     public Resource(String publicKey, String url, String originalFileName) {
+
+
         this.publicKey = publicKey;
         this.url = url;
         this.originalFileName = originalFileName;

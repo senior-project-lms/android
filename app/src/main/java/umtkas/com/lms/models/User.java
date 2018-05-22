@@ -1,5 +1,7 @@
 package umtkas.com.lms.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -9,6 +11,7 @@ public class User implements Serializable {
 
     private String publicKey;
 
+    @SerializedName("username")
     private String username;
 
     private String name;

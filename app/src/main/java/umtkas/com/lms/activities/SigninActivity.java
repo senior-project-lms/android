@@ -58,7 +58,7 @@ public class SigninActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         this.getSupportActionBar().hide();
         ButterKnife.bind(this);
-        sharedPreferences = this.getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("lms-auth", Context.MODE_PRIVATE);
         apiService = ApiService.getClient();
 
         editor = this.sharedPreferences.edit();

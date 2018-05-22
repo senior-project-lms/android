@@ -1,5 +1,7 @@
 package umtkas.com.lms.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Grade implements Serializable {
@@ -7,12 +9,17 @@ public class Grade implements Serializable {
 
     private static final long serialVersionUID = -2772008447545907956L;
 
-
+    @SerializedName("publicKey")
     private String publicKey;
+    @SerializedName("name")
     private String name;
+    @SerializedName("score")
     private double score;
+    @SerializedName("average")
     private double average;
+    @SerializedName("maxScore")
     private double maxScore;
+    @SerializedName("weight")
     private double weight;
 
     public Grade(String name, double score, double maxScore, double average, double weight) {

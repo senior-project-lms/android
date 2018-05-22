@@ -1,16 +1,16 @@
 package umtkas.com.lms.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Random;
 
-public class Course implements Serializable {
+public class Course {
 
-
-    private static final long serialVersionUID = -8626579255963630342L;
-
-
+    @SerializedName("publicKey")
     private String publicKey;
 
+    @SerializedName("name")
     private String name;
 
     private int notifications;
