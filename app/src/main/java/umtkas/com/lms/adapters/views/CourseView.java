@@ -24,8 +24,8 @@ public class CourseView {
     @BindView(R.id.rowColorView)
     View viewColor;
 
-    @BindView(R.id.badge)
-    BadgeView badgeView;
+//    @BindView(R.id.badge)
+//    BadgeView badgeView;
 
     public CourseView(Course course, View view, long index) {
         ButterKnife.bind(this, view);
@@ -34,7 +34,7 @@ public class CourseView {
 
         this.lblCourseName.setText(course.getName());
         viewColor.setBackgroundColor(getRandomColor());
-        badgeView.setValue(course.getNotifications());
+//        badgeView.setValue(course.getNotifications());
     }
 
     private int getRandomColor(){

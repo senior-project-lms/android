@@ -4,7 +4,7 @@ import okhttp3.Credentials;
 
 public class Server {
 
-    public static final String BASE_URL = "http://10.0.2.2:8090/";
+    public static final String BASE_URL = "http://206.189.22.130:8080/lms/";
 
     public static final String CLIENT_ID = "learningmanagementsystem";
 

@@ -127,10 +127,24 @@ public class SigninActivity extends AppCompatActivity {
 
                     }
                     else{
+                        sharedPreferences.edit().clear();
+                        editor.clear();
+
+                        editor.commit();
+
                         Toast.makeText(getApplicationContext(), "Username or Password is not correct", Snackbar.LENGTH_LONG).show();
                         p.dismiss();
 
                     }
+
+                }
+                else{
+                    sharedPreferences.edit().clear();
+                    editor.clear();
+                    editor.commit();
+
+                    Toast.makeText(getApplicationContext(), "Username or Password is not correct", Snackbar.LENGTH_LONG).show();
+                    p.dismiss();
 
                 }
             }

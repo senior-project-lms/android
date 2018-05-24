@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -68,6 +71,7 @@ public class CoursesActivity extends AppCompatActivity {
                 Course course = courses.get(position);
 
                 editor.putString("course_public_key", course.getPublicKey());
+                editor.putString("course_name", course.getName());
                 editor.commit();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -110,6 +114,25 @@ public class CoursesActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater =  getMenuInflater();
+        menuInflater.inflate(R.menu.menu_action_bar, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.sign_out){
+            sharedPreferences.edit().clear();
+            editor.clear();
+            editor.commit();
+            Intent AuthActivityIntent = new Intent(CoursesActivity.this, SigninActivity.class);
+            startActivity(AuthActivityIntent);
+        }
+        return true;
+
+    }
 
 }
